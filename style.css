@@ -201,7 +201,7 @@ a.carte-film:focus-visible img {
   margin-bottom: 10px;
 }
 
-.meta-film {
+.information-film {
   display: flex;
   align-items: center;
   gap: 15px;
