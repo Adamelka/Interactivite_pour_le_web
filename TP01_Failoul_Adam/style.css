@@ -1,0 +1,202 @@
+* { /* Enlève le modèle de marge par défaut du navigateur. */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body { /* Police par ddéfaut du site. */
+  font-family: system-ui, sans-serif;
+  color: #000000;
+}
+
+a { /* Les liens garde la couleur de texte par défaut. */
+  color: inherit;
+  text-decoration: none;
+}
+
+ul { /* Enlève les points de la liste des liens. */
+  list-style: none;
+}
+
+header { /* l'en-tête position sticky garde le menu visible accrocher en haut de la page même lors du défilement vers le bas. */
+  background-color: rgb(156, 3, 216);
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.wrapper { /* Le conteneur qui s'occupe d'aligner le logo et le menu. */
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo { 
+  width: 30px;
+  height: 30px;
+  background-color: black;
+  border-radius: 50%;
+}
+ul { /* Pour que les liens du menu se mettent en ligne avec un espacement entre eux */
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+nav a { /* Couleur des liens et espacement des liens avec les icônes.  */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: black;
+  padding: 5px;
+  transition: color 0.2s ease;
+}
+
+nav a:hover, /* Rend blanc les liens lors d'un hover */
+nav a:focus-visible {
+  color: white;
+}
+
+
+.icone { /* Image des icônes dans la barre header et du menu. */
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+}
+
+.bouton-menu { /* Bouton menu caché sur pc et qu'y s'affiche seulement sur mobile. */
+  display: none;
+  background: none;
+  border: none;
+}
+@media screen and (width <=900px) { /* Pour l'affichage mobile  */
+  .bouton-menu {/* Affiche le bouton du menu sur mobile */
+    display: block;
+  }
+
+  nav { /* Pour que sur mobile le menu change en menu déroulent. */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    background-color: rgb(180, 180, 180);
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+  }
+
+  .closed { /* Cacher le menu lorsqu'il est fermé. */
+    top: 0;
+    translate: 0 -100%;
+    visibility: hidden;
+  }
+
+  ul { /* Pour que les liens du menu se mettent en colonne verticalement sur mobile. */
+    flex-direction: column;
+  }
+}
+
+main { /*Le contenue principal dde la page*/
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.grille-film { /*Page bibliothèquea avec les grilles de films */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.carte-film { /*Taille et couleur des cartes des films. */
+  width: 150px;
+  height: 150px;
+  background-color: lightgrey;
+  transition: background-color 0.2s ease;
+}
+a.carte-film img {
+  transition: filter 0.2s ease;
+}
+a.carte-film:hover img, /* la carte deviens plus noir lors dd'un hover dessus. */
+a.carte-film:focus-visible img {
+  filter: brightness(0.7);
+}
+
+
+.fiche-film { /* La disposition de la page film */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.image-film { /* Taille de l'affiche du film */
+  width: 300px;
+  height: 300px;
+  background-color: whitesmoke;
+  
+}
+.carte-film img, /*  pour que les images remplissent leur carte. */
+.image-film img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.infos-film { /* S'occupe de l'affichage de la description dddu film. */
+  flex: 1;
+  min-width: 250px;
+}
+.infos-film h1 { /* Réduit l'espacement sous le titre. */
+  margin-bottom: 5px;
+}
+.nom-studio {
+  color: #000000;
+  margin-bottom: 10px;
+}
+.meta-film {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+  color: #000000;
+}
+.description-film { /* Limite la largeur du texte de la description. */
+  max-width: 60ch;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.bouton-regarder{
+  display: inline-block;
+  background-color: lightgrey;
+  padding: 10px 30px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.bouton-regarder:hover, /* Pour noircir le bouton regarder lorsqu'il y a un hover. */
+.bouton-regarder:focus-visible {
+  background-color: darkgrey;
+}
+
+@media screen and (width <=700px) { /* Pour que la fiche de l'écran se mette en colonne sur mobile. */
+  .fiche-film {
+    flex-direction: column;
+  }
+  .image-film { /* Pour limiter la largeur de l'affiche du film sur mobile. */
+    width: 100%;
+    max-width: 300px;
+  }
+}
